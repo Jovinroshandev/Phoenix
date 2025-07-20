@@ -62,7 +62,7 @@ export default function App() {
 
           {/* Animated Loading Text */}
           {/* FIRE LOADING... with fire glow one by one */}
-          <div className="flex gap-0 md:gap-2 text-xs md:text-4xl font-extrabold tracking-widest">
+          <div className="flex gap-0 md:gap-2 text-sm md:text-4xl font-extrabold tracking-widest">
             {"FIRE   LOADING...".split("").map((char, i) => (
               <span
                 key={i}
