@@ -14,16 +14,12 @@ const useScrollZone = () => {
 
       let newZone = "";
 
-      if (scrollRatio <= 0.05) {
+      if (scrollRatio <= 0.25) {
         newZone = "top";
-      } else if (scrollRatio > 0.05 && scrollRatio <= 0.25) {
-        newZone = "mid-top";
-      } else if (scrollRatio > 0.25 && scrollRatio <= 0.55) {
-        newZone = "middle";
-      } else if (scrollRatio > 0.55 && scrollRatio <= 0.85) {
-        newZone = "mid-bottom";
+      } else if (scrollRatio > 0.25 && scrollRatio <= 0.40) {
+        newZone = "top-mid";
       } else {
-        newZone = "bottom";
+        newZone = "top-bottom";
       }
 
       if (zone !== newZone) {
