@@ -33,9 +33,9 @@ export default function Banner() {
         };
     }, []);
     const birdVariants = {
-        top: { y: -90 },
-        "top-mid": { y: -40 },
-        "top-bottom": { y: 90 },
+        top: { y: -220 },
+        "top-mid": { y: -120 },
+        "top-bottom": { y: 0 },
         default: { y: 0 }
     };
 
@@ -123,7 +123,7 @@ export default function Banner() {
             </motion.div>
 
             {/* Bird Mobile */}
-            <motion.div className="md:hidden absolute top-80 left-1/2 transform -translate-x-1/2 w-80">
+            <motion.div className="md:hidden absolute top-80 left-1/2 transform -translate-x-1/2 w-72">
                 <motion.img
                     initial={{ y: 0 }}
                     animate={birdVariants[position] || birdVariants.default}

@@ -74,7 +74,10 @@ export default function App() {
           }}
         >
           <Navbar scrollToSection={scrollToSection}/>
-          <div ref={homeView} style={{ height: "90vh" }}>
+          <div className="hidden md:block h-screen" ref={homeView}>
+            <Banner/>
+          </div>
+          <div className="md:hidden h-96" ref={homeView}>
             <Banner/>
           </div>
           <div ref={whyView}>
