@@ -33,7 +33,7 @@ export default function Banner() {
         };
     }, []);
     const birdVariants = {
-        top: { y: -180 },
+        top: { y: -150 },
         middle: { y: -110 },
         "mid-bottom": { y: 90 },
         default: { y: 0 }
@@ -141,7 +141,7 @@ export default function Banner() {
                 initial={{ x: 0 }}
                 animate={{ x: scrollDirection === "up" ? -100 : 0 }}
                 transition={{ type: "keyframes", duration: 1, ease: "easeInOut" }}
-                className="absolute top-56 left-[-200px]"
+                className="hidden md:block absolute top-56 left-[-200px]"
             >
                 <img style={{ width: "600px" }} src={CloudImage2} alt="bottom cloud" />
             </motion.div>
