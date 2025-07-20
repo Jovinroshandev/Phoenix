@@ -47,9 +47,8 @@ export default function Banner() {
                 initial={{ x: -500, opacity: 1, scale: 1 }}
                 animate={{ x: 0, opacity: scrollDirection === "up" ? 1 : 0, scale: scrollDirection === "up" ? 0.9 : 1 }}
                 transition={{ type: "keyframes", duration: 1, ease: "easeInOut" }}
-                className="md:mx-32"
             >
-                <img style={{width:"900px"}} className="md:w-1/2" src={CloudImageMain} alt="main cloud" />
+                <img style={{width:"500px"}} className="md:w-1/2" src={CloudImageMain} alt="main cloud" />
             </motion.div>
 
             {/* Right Top */}
