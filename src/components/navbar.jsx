@@ -44,7 +44,10 @@ export default function Navbar({ scrollToSection }) {
 
       {/* Mobile Menu - only shown when `mobileOpen` is true */}
       {mobileOpen && (
-        <div className="absolute top-20 left-6 right-6 bg-[#FF634A] rounded-xl p-4 md:hidden z-40">
+        <div className="absolute pt-16 flex flex-col items-center gap-6 h-screen mb-5 top-0 left-0 right-0 bg-[#FB9477]  p-4 md:hidden z-40">
+          <div className='absolute top-0 right-0 p-5'>
+            <i onClick={() => setMobileOpen(!mobileOpen)} class="cursor-pointer fa-solid fa-xmark text-2xl text-white "></i>
+          </div>
           {menuList.map(({ label, key }, index) => (
             <motion.p
               key={index}
@@ -53,7 +56,7 @@ export default function Navbar({ scrollToSection }) {
                 setMobileOpen(false); // close menu after click
               }}
               whileTap={{ scale: 0.95 }}
-              className="cursor-pointer text-white font-bold py-2 border-b border-white/20"
+              className="cursor-pointer text-white text-center bg-[#290f0873] w-64 border-white rounded-xl font-bold py-2 border-b border-white/20"
             >
               {label}
             </motion.p>
