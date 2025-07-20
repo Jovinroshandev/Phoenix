@@ -6,21 +6,30 @@ import BannerBGImage from "./assets/images/banner-bg-image.png";
 import LoaderCharacter from "./assets/images/loader-character.gif";
 import BookSection from "./components/bookSection";
 import FirePhoenix from "./components/firePhoenix";
+import JoinNow from "./components/joinNow";
+import Social from "./components/social";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const homeView = useRef();
+  const homemobileView = useRef();
   const whyView = useRef();
   const bookView = useRef();
+  const JoinNowView = useRef();
+  const SocialView = useRef();
 
-  const scrollToSection = (section) =>{
-    const sections = {
-      home:homeView,
-      why:whyView,
-      book:bookView
-    }
-    sections[section]?.current?.scrollIntoView({behavior:'smooth'})
-  }
+  const scrollToSection = (section) => {
+  const isMobile = window.innerWidth < 768; // tailwind md = 768px
+  const sections = {
+    home: isMobile ? homemobileView : homeView,
+    why: whyView,
+    book: bookView,
+    join: JoinNowView,
+    social: SocialView,
+  };
+  sections[section]?.current?.scrollIntoView({ behavior: "smooth" });
+};
+
   useEffect(() => {
     const img = new Image();
     img.src = BannerBGImage;
@@ -77,7 +86,7 @@ export default function App() {
           <div className="hidden md:block h-screen" ref={homeView}>
             <Banner/>
           </div>
-          <div className="md:hidden h-96" ref={homeView}>
+          <div className="md:hidden h-96" ref={homemobileView}>
             <Banner/>
           </div>
           <div ref={whyView}>
@@ -85,6 +94,12 @@ export default function App() {
           </div>
           <div ref={bookView}>
             <BookSection />
+          </div>
+          <div ref={JoinNowView}>
+            <JoinNow/>
+          </div>
+          <div ref={SocialView}>
+            <Social/>
           </div>
         </div>
       )}

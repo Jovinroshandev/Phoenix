@@ -8,7 +8,7 @@ export default function Navbar({ scrollToSection }) {
     { label: 'HOME', key: 'home' },
     { label: 'WHY CHOOSE PHOENIX', key: 'why' },
     { label: 'OUR STORY', key: 'book' },
-    { label: 'BUY', key: 'book' },
+    { label: 'JOIN', key: 'join' },
     { label: 'SOCIALS', key: 'social' }
   ];
 
@@ -25,7 +25,7 @@ export default function Navbar({ scrollToSection }) {
       </button>
 
       {/* Desktop Menu */}
-      <div className="hidden md:block">
+      <div className="hidden md:block ">
         <div className="flex gap-6 bg-[#FF634A] bg-gradient-to-t from-[#FF634A] to-red-700 py-2 px-5 rounded-full">
           {menuList.map(({ label, key }, index) => (
             <motion.p
