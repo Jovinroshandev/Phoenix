@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+.fire-letter {
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  opacity: 0;
+  text-shadow:
+    0 0 5px #ff9900,
+    0 0 10px #ff7700,
+    0 0 20px #ff3300,
+    0 0 40px #ff0000;
+  display: inline-block;
+  animation: glow 0.6s ease-in-out forwards;
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+    text-shadow:
+      0 0 8px #ffaa00,
+      0 0 16px #ff5500,
+      0 0 32px #ff3300;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    text-shadow:
+      0 0 6px #ff7700,
+      0 0 12px #ff4400,
+      0 0 24px #ff2200;
+  }
+}
+
+@keyframes loading-bar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 3s ease-in-out forwards;
+}
+
+.flipbook-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+.loader {
+  position: absolute;
+  color: white;
+  font-size: 18px;
+  z-index: 10;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.visible {
+  opacity: 1;
+}
+
+.invisible {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes progress-bar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-progress-bar {
+  animation: progress-bar 3s ease-in-out forwards;
+}
