@@ -33,7 +33,7 @@ export default function Banner() {
         };
     }, []);
     const birdVariants = {
-        top: { y: -100 },
+        top: { y: 60 },
         "mid-top": { y: -80 },
         middle: { y: 80 },
         "mid-bottom": { y: 0 },
@@ -49,7 +49,7 @@ export default function Banner() {
                 transition={{ type: "keyframes", duration: 1, ease: "easeInOut" }}
                 className="md:mx-32"
             >
-                <img className="md:w-1/2 w-full" src={CloudImageMain} alt="main cloud" />
+                <img style={{width:"900px"}} className="md:w-1/2" src={CloudImageMain} alt="main cloud" />
             </motion.div>
 
             {/* Right Top */}
