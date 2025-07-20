@@ -34,8 +34,9 @@ export default function Banner() {
     }, []);
     const birdVariants = {
         top: { y: -150 },
-        middle: { y: -110 },
-        "mid-bottom": { y: 90 },
+        middle: { y: -40 },
+        "mid-top": { y: -130 },
+        "mid-bottom": { y: 0 },
         default: { y: 0 }
     };
 
