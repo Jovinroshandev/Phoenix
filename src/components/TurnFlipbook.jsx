@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import cover from "../assets/book/cover.png";
-import page1 from "../assets/book/page1.jpg";
-import page2 from "../assets/book/page2.jpg";
+import page1 from "../assets/book/page1.png";
+import page2 from "../assets/book/page2.png";
 import page3 from "../assets/book/page3.png";
-import page4 from "../assets/book/page3.png";
+import page4 from "../assets/book/page4.png";
 
 export default function TurnFlipbook() {
   const bookRef = useRef(null);
