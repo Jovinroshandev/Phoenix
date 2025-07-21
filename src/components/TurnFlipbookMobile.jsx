@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import cover from "../assets/book/cover.png";
 import page1 from "../assets/book/page1.png";
 import page2 from "../assets/book/page2.png";
-import page3 from "../assets/book/page4.png";
+import page3 from "../assets/book/page3.png";
+import page4 from "../assets/book/page4.png";
 
 export default function TurnFlipbookMobile() {
   const bookRef = useRef(null);
@@ -36,7 +37,7 @@ export default function TurnFlipbookMobile() {
       <div style="background-image: url('${page1}'); background-size: cover; background-position: center;"></div>
       <div style="background-image: url('${page2}'); background-size: cover; background-position: center;"></div>
       <div style="background-image: url('${page3}'); background-size: cover; background-position: center;"></div>
-      <div style="background-image: url('${page3}'); background-size: cover; background-position: center;"></div>
+      <div style="background-image: url('${page4}'); background-size: cover; background-position: center;"></div>
     `;
 
     const $flipbook = window.$(container);
