@@ -2,15 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import cover from "../assets/book/cover.png";
 import page1 from "../assets/book/page1.jpg";
 import page2 from "../assets/book/page2.jpg";
+import page3 from "../assets/book/page3.png";
+import page4 from "../assets/book/page3.png";
 
 export default function TurnFlipbook() {
   const bookRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const pages = [cover, page1, page2];
+  const pages = [cover, page1, page2, page3, page4];
 
-  // Preload images before initializing Turn.js
+  // Preload all images
   useEffect(() => {
     const preloadImages = pages.map(
       (src) =>
@@ -24,17 +25,18 @@ export default function TurnFlipbook() {
     Promise.all(preloadImages).then(() => setIsLoaded(true));
   }, []);
 
-  // Initialize Turn.js after images are loaded
+  // Initialize Turn.js
   useEffect(() => {
     if (!isLoaded) return;
 
     const container = bookRef.current;
 
-    container.innerHTML = `
-      <div style="background-image: url('${cover}'); background-size: cover; background-position: center;"></div>
-      <div style="background-image: url('${page1}'); background-size: cover; background-position: center;"></div>
-      <div style="background-image: url('${page2}'); background-size: cover; background-position: center;"></div>
-    `;
+    container.innerHTML = pages
+      .map(
+        (src) =>
+          `<div style="background-image: url('${src}'); background-size: cover; background-position: center;"></div>`
+      )
+      .join("");
 
     const $flipbook = window.$(container);
 
@@ -42,17 +44,12 @@ export default function TurnFlipbook() {
       width: 500,
       height: 350,
       elevation: 20,
-      gradients: false,
+      gradients: true,
       duration: 600,
       acceleration: true,
-      autoCenter: false, // Prevent layout shake
+      autoCenter: true,
       display: "double",
       showCover: true,
-      when: {
-        turned: (e, page) => {
-          setIsOpen(page !== 1);
-        }
-      }
     });
 
     return () => {
@@ -62,20 +59,30 @@ export default function TurnFlipbook() {
     };
   }, [isLoaded]);
 
-  const toggleBook = () => {
+  // Flip left or right based on click position
+  const handleClick = (e) => {
+    const rect = bookRef.current.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const midpoint = rect.width / 2;
+
     const $flipbook = window.$(bookRef.current);
-    if ($flipbook?.turn) {
-      $flipbook.turn("page", isOpen ? 1 : 2);
+    if (!$flipbook?.turn) return;
+
+    if (clickX < midpoint) {
+      $flipbook.turn("previous");
+    } else {
+      $flipbook.turn("next");
     }
   };
 
   return (
-    <div className="flipbook-wrapper">
+    <div className="flipbook-wrapper" style={{ textAlign: "center" }}>
       {!isLoaded && <div className="loader">Loading book...</div>}
-        <div
+      <div
         ref={bookRef}
-        onClick={toggleBook}
+        onClick={handleClick}
         className={`flipbook ${isLoaded ? "visible" : "invisible"}`}
+        style={{ cursor: "pointer" }}
       ></div>
     </div>
   );
