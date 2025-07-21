@@ -74,13 +74,18 @@ export default function TurnFlipbookMobile() {
   };
 
   return (
-    <div className="flipbook-wrapper">
+    <div>
       {!isLoaded && <div className="loader">Loading book...</div>}
+        <div className="flex">
+            <div className="flex  flex-col items-center justify-center">
+            <p className="w-16 text-xs text-white  text-wrap">Click on The book to Read the Story</p>
+        </div>
         <div
         ref={bookRef}
         onClick={toggleBook}
         className={`flipbook ${isLoaded ? "visible" : "invisible"}`}
       ></div>
+        </div>
     </div>
   );
 }

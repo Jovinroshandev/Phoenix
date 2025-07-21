@@ -78,12 +78,18 @@ export default function TurnFlipbook() {
   return (
     <div className="flipbook-wrapper" style={{ textAlign: "center" }}>
       {!isLoaded && <div className="loader">Loading book...</div>}
+      
+      <div className="flex items-center gap-10">
+        <div>
+        <p className="w-28 text-lg text-white  text-wrap">Click on The book to Read the Story</p>
+      </div>
       <div
         ref={bookRef}
         onClick={handleClick}
         className={`flipbook ${isLoaded ? "visible" : "invisible"}`}
         style={{ cursor: "pointer" }}
       ></div>
+      </div>
     </div>
   );
 }
